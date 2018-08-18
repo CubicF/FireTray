@@ -4,8 +4,8 @@ const Cc = Components.classes;
 const Ci = Components.interfaces;
 const Cu = ChromeUtils;
 
-Cu.import("resource://firetray/FiretrayHandler.jsm");
-Cu.import("resource://firetray/commons.js");
+Cu.import("chrome://firetray/content/modules/FiretrayHandler.jsm");
+Cu.import("chrome://firetray/content/modules/commons.js");
 
 const TREEROW_ACCOUNT_OR_SERVER_TYPE_NAME     = 0;
 const TREEROW_ACCOUNT_OR_SERVER_TYPE_EXCLUDED = 1;
@@ -51,7 +51,7 @@ var firetrayUIOptions = {
 
     if (firetray.Handler.inMailApp) {
       Cu.import("resource:///modules/mailServices.js");
-      Cu.import("resource://firetray/FiretrayMessaging.jsm");
+      Cu.import("chrome://firetray/content/modules/FiretrayMessaging.jsm");
       this.initMailControls();
     } else {
       this.removePrefPane("pref-pane-mail");
@@ -60,7 +60,7 @@ var firetrayUIOptions = {
     if (firetray.Handler.isChatProvided() &&
         firetray.Handler.support['chat'] &&
         !firetray.AppIndicator) {
-      Cu.import("resource://firetray/"+firetray.Handler.app.OS+"/FiretrayChat.jsm");
+      Cu.import("chrome://firetray/content/modules/"+firetray.Handler.app.OS+"/FiretrayChat.jsm");
       this.initChatControls();
     } else {
       this.removePrefPane("pref-pane-chat");

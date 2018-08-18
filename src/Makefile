@@ -103,7 +103,7 @@ chrome_sources := $(chrome_sources_js)								\
                $(wildcard $(chrome_source_root)/locale/*/*.properties)
 
 # The modules (JSM) dir.
-modules_dir := modules
+modules_dir := $(chrome_source_root)/content/modules
 
 # The sources for the module files.
 modules_sources := $(wildcard $(modules_dir)/*.js)			\
@@ -195,13 +195,13 @@ clean_build:
 	@rm -rf $(build_dir)*
 
 VERSION_HARD_CODED := $(shell awk -F\" '/const[ \t]+FIRETRAY_VERSION/ \
-  {print $$2}' modules/commons.js)
+  {print $$2}' $(modules_dir)/commons.js)
 check_version:
 	@echo "checking version consistency"
 	@[ "$(VERSION)" = "$(VERSION_HARD_CODED)" ]
 
 FIRETRAY_LOG_LEVEL := $(shell awk -F\" '/const[ \t]+FIRETRAY_LOG_LEVEL/ \
-  {print $$2}' modules/logging.jsm)
+  {print $$2}' $(modules_dir)/logging.jsm)
 check_loglevel:
 	@echo "checking loglevel"
 	@[ "Warn" = "$(FIRETRAY_LOG_LEVEL)" ]

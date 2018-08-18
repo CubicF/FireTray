@@ -5,8 +5,8 @@ const Ci = Components.interfaces;
 const Cu = ChromeUtils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-Cu.import("resource://firetray/logging.jsm");
-Cu.import("resource://firetray/FiretrayHandler.jsm");
+Cu.import("chrome://firetray/content/modules/logging.jsm");
+Cu.import("chrome://firetray/content/modules/FiretrayHandler.jsm");
 
 let log = firetray.Logging.getLogger("firetray.clhandler");
 

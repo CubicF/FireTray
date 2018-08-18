@@ -1,12 +1,12 @@
 /* -*- Mode: js2; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 "use strict";
 
-Components.utils.import("resource://firetray/commons.js");
-Components.utils.import("resource://firetray/FiretrayHandler.jsm");
+ChromeUtils.import("chrome://firetray/content/modules/commons.js");
+ChromeUtils.import("chrome://firetray/content/modules/FiretrayHandler.jsm");
 
 if ("undefined" == typeof(Cc)) var Cc = Components.classes;
 if ("undefined" == typeof(Ci)) var Ci = Components.interfaces;
-if ("undefined" == typeof(Cu)) var Cu = Components.utils;
+if ("undefined" == typeof(Cu)) var Cu = ChromeUtils;
 
 // can't use 'log': don't pollute global (chrome) namespace
 let firetray_log = firetray.Logging.getLogger("firetray.Chrome");
